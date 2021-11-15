@@ -69,8 +69,6 @@ Validating card number without identification
 var isCardValid = FlutterCardidy.isCardNumberValid("47!Z320594033");
 ```
 
-For more details have a look at the other [examples](https://github.com/hey24sheep/flutter_cardidy/tree/master/example).
-
 ## Properties
 
 > Return type of `Identify` is `List<CardType>`. A card is sometimes a co-branded card like Visa or Visa Electron, in this case all matching providers are returned.
@@ -94,4 +92,4 @@ Help me by reporting bugs, **submit new ideas** for features or anything else th
 Check out my other useful packages on [pub.dev](https://pub.dev/publishers/hey24sheep.com/packages)
 
 ## License
-[MIT](https://github.com/hey24sheep/flutter_cardidy)
+[MIT](https://github.com/hey24sheep/flutter_cardidy/blob/master/LICENSE)
