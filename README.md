@@ -28,7 +28,7 @@ This flutter package will help you validate **card numbers or CVVs** and identiy
 
 ```dart
       dependencies:
-        flutter_cardidy: ^2.0.1
+        flutter_cardidy: ^1.0.0
 ```
 
 ## Getting Started
@@ -45,7 +45,7 @@ To validate and identify card's issuing provider
 
 ```dart
 // single card number identification
-final result = FlutterCardidy.Identify("4127540509730813");
+final result = FlutterCardidy.identify("4127540509730813");
 Console.WriteLine(result.first); // print Visa
 ```
 
@@ -53,14 +53,14 @@ Multi card identification
 
 ```dart
 // returns a KVP Map of, cardnum as key & result as value
-final mapResult = FlutterCardidy.Identify(["4127540509730813","4771320594031"]);
+final mapResult = FlutterCardidy.identifyMultiple(["4127540509730813","4771320594031"]);
 ```
 
 Validating CVV
 
 ```dart
 var cvv = "123";
-var visaCvvIsValid = FlutterCardidy.IsCvvValid(cvv, CardType.Visa);
+var visaCvvIsValid = FlutterCardidy.isCvvValid(cvv, CardType.Visa);
 ```
 
 Validating card number without identification
