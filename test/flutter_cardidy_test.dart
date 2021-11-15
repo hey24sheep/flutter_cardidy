@@ -1,5 +1,5 @@
 import 'package:flutter_cardidy/flutter_cardidy.dart';
-import 'package:flutter_cardidy/src/Models/card_type.dart';
+import 'package:flutter_cardidy/src/cardidy.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
