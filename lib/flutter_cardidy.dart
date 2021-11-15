@@ -79,7 +79,7 @@ class FlutterCardidy {
     bool ignoreNoise = false,
     bool handleAnonymization = false,
   }) {
-    if (!cardNumString.isCardNumberValid(handleAnonymization)) {
+    if (!cardNumString.isCardNumberValid(handleAnonymization, ignoreNoise)) {
       return List<CardType>.empty();
     }
 
@@ -195,7 +195,8 @@ class FlutterCardidy {
   static bool isCardNumberValid(
     String cardNumString, {
     bool handleAnonymization = false,
+    bool ignoreNoise = false,
   }) {
-    return cardNumString.isCardNumberValid(handleAnonymization);
+    return cardNumString.isCardNumberValid(handleAnonymization, ignoreNoise);
   }
 }

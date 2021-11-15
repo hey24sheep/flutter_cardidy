@@ -7,23 +7,24 @@ extension StringExtensions on String {
     return isEmpty || trim() == '';
   }
 
-  bool isDigit(String s, int idx) => (s.codeUnitAt(idx) ^ 0x30) <= 9;
+  bool isCardNumberValid(bool handleAnonymization, bool ignoreNoise) =>
+      !isNullOrWhiteSpace() && !isCardShady(handleAnonymization, ignoreNoise);
 
-  bool isCardNumberValid(bool handleAnonymization) =>
-      !isNullOrWhiteSpace() || !isCardShady(handleAnonymization);
+  bool isCardShady(bool handleAnonymization, bool ignoreNoise) =>
+      !startsWithDigit(ignoreNoise) ||
+      (!handleAnonymization && hasNotANumber(ignoreNoise));
 
-  bool isCardShady(bool handleAnonymization) =>
-      !startsWithDigit() || (!handleAnonymization && hasNotANumber());
+  bool startsWithDigit(bool ignoreNoise) =>
+      int.tryParse(cleanNoise(ignoreNoise).first) != null;
 
-  bool startsWithDigit() => runes.isNotEmpty ? runes.first.isDigit() : false;
-
-  bool hasNotANumber() =>
-      runes.isNotEmpty ? runes.every((x) => !x.isDigit()) : true;
+  bool hasNotANumber(bool ignoreNoise) =>
+      cleanNoise(ignoreNoise).any((x) => (int.tryParse(x) == null));
 
   Characters getCharsFromCardString({bool ignoreNoise = false}) =>
-      (ignoreNoise ? cleanNoise() : characters);
+      cleanNoise(ignoreNoise);
 
-  Characters cleanNoise() => characters.where((c) => !"- .".contains(c));
+  Characters cleanNoise(bool ignoreNoise) =>
+      ignoreNoise ? characters.where((c) => !"- .".contains(c)) : characters;
 
   List<int> toDigits({bool ignoreNoise = false}) =>
       getCharsFromCardString(ignoreNoise: ignoreNoise)
