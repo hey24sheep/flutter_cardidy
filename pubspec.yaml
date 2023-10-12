@@ -1,6 +1,6 @@
 name: flutter_cardidy
 description: A flutter port of Cardidy, a package to validate or identify card numbers & cvv with ease.
-version: 1.0.0
+version: 1.0.1
 homepage: https://github.com/hey24sheep/flutter_cardidy
 documentation: https://github.com/hey24sheep/flutter_cardidy
 
